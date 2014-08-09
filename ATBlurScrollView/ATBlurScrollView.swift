@@ -190,15 +190,15 @@ class ATBlurScrollView: UIView, UIScrollViewDelegate {
     
 
     func createTopMaskWithSize(size:CGSize, startFadeAt:CGFloat, endAt:CGFloat, topColor:UIColor, botColor:UIColor) -> CALayer {
-        var top = startFadeAt/size.height;
-        var bottom = endAt/size.height;
+        let top = startFadeAt/size.height;
+        let bottom = endAt/size.height;
         
         var maskLayer = CAGradientLayer()
         maskLayer.anchorPoint = CGPointZero;
         maskLayer.startPoint = CGPointMake(0.5, 0.0);
         maskLayer.endPoint = CGPointMake(0.5, 1.0);
         
-        var colors: [AnyObject] = [topColor.CGColor, topColor.CGColor, botColor.CGColor, botColor.CGColor]
+        let colors: [AnyObject] = [topColor.CGColor, topColor.CGColor, botColor.CGColor, botColor.CGColor]
         
         maskLayer.colors = colors
         
@@ -209,7 +209,7 @@ class ATBlurScrollView: UIView, UIScrollViewDelegate {
     }
     
     func foregroundTapped(tapRecognizer:UITapGestureRecognizer){
-        var tappedPoint = tapRecognizer.locationInView(_fgScrollView)
+        let tappedPoint = tapRecognizer.locationInView(_fgScrollView)
         if tappedPoint.y < _fgScrollView.frame.size.height {
             var ratio:CGFloat = _fgScrollView.contentOffset.y == -_fgScrollView.contentInset.top ? 1:0
             
@@ -228,7 +228,7 @@ class ATBlurScrollView: UIView, UIScrollViewDelegate {
     }
     
     func scrollViewWillEndDragging(scrollView: UIScrollView!, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        var point:CGPoint = targetContentOffset.memory
+        let point:CGPoint = targetContentOffset.memory
         var ratio = (point.y + _fgScrollView.contentInset.top)/(_fgScrollView.frame.size.height - _fgScrollView.contentInset.top - _viewDistanceFromBottom)
         
         if ratio > 0 && ratio < 1 {
