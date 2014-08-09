@@ -2,7 +2,7 @@
 //  ATBlurScrollView.swift
 //
 //  Created by Jesper Nielsen on 07/08/14.
-//  Copyright (c) 2014 Jesper Nielsen. All rights reserved.
+//  Copyright (c) 2014 Anders Holm. All rights reserved.
 //
 
 import UIKit
